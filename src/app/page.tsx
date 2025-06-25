@@ -2,7 +2,7 @@ import { Hero } from "./components";
 
 export default function Home() {
   return (
-    <main>
+    <main className="w-full overflow-x-hidden">
       <Hero />
     </main>
   );
