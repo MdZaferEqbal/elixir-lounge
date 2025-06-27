@@ -1,56 +1,207 @@
+"use client";
+
+import Image from "next/image";
+import { heroLeftLeaf, heroRightLeaf } from "../utils";
+import Link from "next/link";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger, SplitText } from "gsap/all";
+import { useRef } from "react";
+import { useMediaQuery } from "react-responsive";
+
+gsap.registerPlugin(SplitText);
+gsap.registerPlugin(ScrollTrigger);
+
 const Hero = () => {
+  const videoRef = useRef();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  useGSAP(() => {
+    document.fonts.ready.then(() => {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          heroLeftSubtitleSplit.revert();
+          heroRightSubtitleSplit.revert();
+        },
+      });
+
+      SplitText.create("#el-hero-title", {
+        type: "chars, words",
+        charsClass: "text-gradient",
+        onSplit: (self) => {
+          gsap.to("#el-hero-title", {
+            opacity: 1,
+          });
+
+          return tl.from(self.chars, {
+            yPercent: 50,
+            opacity: 0,
+            duration: 1.8,
+            ease: "expo.out",
+            stagger: {
+              amount: 0.5,
+              from: "start",
+            },
+          });
+        },
+      });
+
+      let heroLeftSubtitleSplit = SplitText.create("#el-hero-left-subtitle", {
+        type: "lines",
+        autoSplit: true,
+        mask: "lines",
+        onSplit: (self) => {
+          gsap.to("#el-hero-left-subtitle", {
+            opacity: 1,
+          });
+
+          return tl.from(
+            self.lines,
+            {
+              y: 50,
+              opacity: 0,
+              ease: "power1.inOut",
+              autoAlpha: 0,
+              stagger: 0.05,
+            },
+            "<1"
+          );
+        },
+      });
+
+      let heroRightSubtitleSplit = SplitText.create("#el-hero-right-subtitle", {
+        type: "lines",
+        autoSplit: true,
+        mask: "lines",
+        onSplit: (self) => {
+          gsap.to("#el-hero-right-subtitle", {
+            opacity: 1,
+          });
+
+          return tl.from(
+            self.lines,
+            {
+              y: 50,
+              opacity: 0,
+              ease: "power1.inOut",
+              autoAlpha: 0,
+              stagger: 0.05,
+            },
+            "<"
+          );
+        },
+      });
+    });
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      })
+      .to(
+        "#el-hero-right-leaf",
+        {
+          y: 200,
+        },
+        "<"
+      )
+      .to(
+        "#el-hero-left-leaf",
+        {
+          y: -200,
+        },
+        "<"
+      );
+
+    const startValue = isMobile ? "top 50%" : "center 50%";
+    const endValue = isMobile ? "120% top" : "bottom top";
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#el-hero-video",
+        start: startValue,
+        end: endValue,
+        scrub: true,
+        pin: true,
+      },
+    });
+
+    tl.to(videoRef.current, {
+      currentTime: videoRef.current.duration,
+    });
+  }, []);
+
   return (
-    <section className="min-h-[200vh]">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-      expedita ullam eaque reprehenderit quaerat repellendus, perferendis natus
-      doloribus alias eum tempora. Rem qui eos cupiditate velit? Vel odit
-      laboriosam laborum. Veritatis nisi, saepe incidunt sunt similique dolores
-      ex dolorem ratione asperiores provident, reiciendis placeat explicabo
-      nesciunt reprehenderit enim autem voluptas, distinctio accusamus facere
-      ullam aspernatur. Neque corporis odio eligendi nesciunt? Porro facere
-      eveniet commodi, laboriosam atque quo facilis odio nisi laborum, ipsam
-      itaque, pariatur labore tempore deleniti nemo earum veniam dolorem? Eaque
-      repellat laudantium voluptatum ex adipisci perferendis fuga nemo. Ipsam
-      similique assumenda temporibus obcaecati voluptatibus, possimus
-      dignissimos vero voluptates eveniet maiores expedita, amet aspernatur
-      explicabo facilis impedit doloremque, blanditiis optio odio corrupti quasi
-      delectus repudiandae. Dignissimos cupiditate minima animi. Doloribus
-      numquam consectetur accusantium reiciendis quibusdam pariatur mollitia
-      ducimus praesentium nam inventore illum alias vel iste, repellendus eaque
-      unde, est magnam a hic harum voluptate non! Saepe, voluptatem omnis!
-      Culpa? Aliquam quam voluptatum numquam eveniet quibusdam, expedita tempore
-      vero minus asperiores eum esse recusandae distinctio totam at soluta ipsa!
-      Corrupti cupiditate non vitae porro saepe laboriosam aliquam officia optio
-      possimus. Voluptas tempora, a ullam eius laudantium autem praesentium,
-      consequatur tenetur sed itaque rerum libero numquam eos deserunt molestiae
-      ipsa ut nihil! Ut, atque modi? Voluptates quisquam odio iusto dolores
-      adipisci? Similique obcaecati cumque fugiat quam natus. In eius quas
-      commodi repudiandae repellat iste alias cupiditate unde fuga accusantium
-      impedit, laborum numquam dicta eaque saepe consequuntur, minima est, nulla
-      voluptas. Ab! Velit fugit error, quidem odit quaerat ducimus sunt aut
-      rerum nesciunt nam dignissimos vel. Explicabo cumque tempore quo,
-      voluptatum quibusdam atque adipisci molestiae modi laborum dolore ad
-      porro, placeat illum. Id, mollitia corrupti, provident earum maiores eaque
-      culpa, rerum illo ipsum dolorem porro. Sint qui aliquid magnam, eius
-      tempora repudiandae molestiae dicta sunt provident ratione, quaerat
-      reiciendis aperiam porro fugiat. Natus, enim eum! Libero cupiditate
-      assumenda reprehenderit possimus ullam excepturi doloremque!
-      Exercitationem, quo fugit, odit maxime quis ipsum est facere minima eaque
-      officia, vero illum dolorum voluptates unde iusto voluptate. Voluptates
-      consectetur nam, placeat, vitae neque voluptas eius perferendis assumenda,
-      quia dolore corrupti quaerat officiis esse. Pariatur, deserunt quia, magni
-      omnis temporibus maiores illum nihil, obcaecati asperiores deleniti
-      voluptatibus quas. Id, tempora! Iste cum porro, optio nostrum iusto eius
-      quisquam aliquam voluptates sunt consequuntur laudantium ea accusamus
-      nobis provident ut, odit, quod ullam similique! Deleniti molestiae ducimus
-      ex tenetur ut. Officia laborum amet dolores consequuntur minima, neque
-      repudiandae delectus culpa vero quae ducimus tenetur explicabo possimus
-      quisquam est impedit, nemo perferendis sint ipsa tempore beatae unde earum
-      debitis voluptatem? Accusamus! Consequatur provident sed repudiandae
-      repellendus impedit dolorum at totam quisquam minima deleniti incidunt,
-      consectetur eos nostrum facere? Cum asperiores expedita optio nobis amet
-      quo dolorem, eveniet eaque corrupti animi totam.
-    </section>
+    <>
+      <section
+        id="hero"
+        className='inset-0 size-full bg-[url("/images/noise.png")] relative z-10 min-h-dvh w-full border border-transparent'
+      >
+        <h1
+          id="el-hero-title"
+          className="md:mt-32 mt-40 text-8xl md:text-[20vw] leading-none text-center font-modern-negra uppercase opacity-0 text-gradient"
+        >
+          Mojito
+        </h1>
+        <Image
+          src={heroLeftLeaf}
+          alt="Left Leaf"
+          placeholder="blur"
+          id="el-hero-left-leaf"
+          className="absolute left-0 md:top-20 xl:top-36 2xl:top-52 md:bottom-auto -bottom-20"
+        />
+
+        <Image
+          src={heroRightLeaf}
+          alt="Right Leaf"
+          placeholder="blur"
+          id="el-hero-right-leaf"
+          className="absolute right-0 md:bottom-0 xl:top-0 2xl:top-12 top-1/2"
+        />
+
+        <div className="container md:w-[90%] mx-auto absolute left-1/2 -translate-x-1/2 lg:bottom-20 top-auto md:top-[30vh] flex justify-between items-end px-5">
+          <div className="flex lg:flex-row flex-col w-full gap-10 justify-between items-center lg:items-end mx-auto">
+            <div className="space-y-5 hidden md:block">
+              <p className="2xl:text-start text-center">
+                Cool. Crisp. Classic.
+              </p>
+              <p
+                id="el-hero-left-subtitle"
+                className="font-modern-negra text-6xl text-yellow max-w-xl opacity-0"
+              >
+                Sip the Spirit <br /> of Summer
+              </p>
+            </div>
+            <div className="space-y-5 text-lg lg:max-w-2xs md:max-w-xs w-full">
+              <p id="el-hero-right-subtitle" className="text-left opacity-0">
+                Every cocktail on our menu is a blend of premium ingredients,
+                creative flair, and timeless recipes — designed to delight your
+                senses.
+              </p>
+              <Link
+                href="#cocktail"
+                className="font-semibold opacity-80 2xl:text-start text-center hover:text-yellow"
+              >
+                View cocktails
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <video
+        className="w-full h-[100%] absolute bottom-0 left-0 md:object-contain object-bottom object-cover inset-0"
+        ref={videoRef}
+        id="el-hero-video"
+        muted
+        playsInline
+        preload="auto"
+        src="/videos/output.mp4"
+      />
+    </>
   );
 };
 

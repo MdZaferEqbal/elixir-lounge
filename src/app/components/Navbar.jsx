@@ -16,7 +16,7 @@ const Navbar = () => {
     const headerTween = gsap.timeline({
       scrollTrigger: {
         trigger: "#el-header",
-        start: "bottom top",
+        start: "bottom +60",
         end: "top top",
         scrub: 0.75,
       },
@@ -28,31 +28,28 @@ const Navbar = () => {
         backgroundColor: "transparent",
       },
       {
-        backgroundColor: "#00000050",
         backdropFilter: "blur(10px)",
       }
     );
   }, []);
 
   return (
-    <header id="el-header" className="fixed z-50 w-full">
+    <header id="el-header" className="fixed z-50 w-full bg-[rgba(0,0,0,0.31)]">
       <nav className="flex md:flex-row md:w-[90%] flex-col md:justify-between items-center gap-5 py-5 lg:px-0 px-5 container mx-auto">
         <Link
           href="#hero"
           className="flex items-center gap-2 cursor-pointer text-nowrap md:text-base text-sm"
         >
-          <Image src={logo} alt="Elixir Lounge Logo" placeholder="blur" />
+          <Image src={logo} alt="Elixir Lounge Logo" />
           <p className="font-modern-negra text-3xl -mb-2">Elixir Lounge</p>
         </Link>
         <ul className="flex justify-center items-center lg:gap-12 gap-7">
           {navLinks.map((navLink) => (
-            <li key={navLink.id}>
-              <Link
-                href={`#${navLink.id}`}
-                className="cursor-pointer text-nowrap md:text-base text-sm hover:text-[#933ece] transition-all"
-              >
-                {navLink.title}
-              </Link>
+            <li
+              key={navLink.id}
+              className="cursor-pointer text-nowrap md:text-base text-sm hover:text-yellow transition-all hover:scale-110"
+            >
+              <Link href={`#${navLink.id}`}>{navLink.title}</Link>
             </li>
           ))}
         </ul>
