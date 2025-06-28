@@ -183,7 +183,7 @@ const Hero = () => {
                 senses.
               </p>
               <Link
-                href="#cocktail"
+                href="#cocktails"
                 className="font-semibold opacity-80 2xl:text-start text-center hover:text-yellow"
               >
                 View cocktails
