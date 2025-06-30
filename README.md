@@ -4,7 +4,7 @@
     </a>
 </div>
 
-# 🏙️ Elixir Lounge Website
+# <img src="public/images/fav.png" alt="Elixir Lounge"/> Elixir Lounge Website
 
 A modern and dynamic website. Built with **Next.js** for fast and scalable performance, and **GSAP (GreenSock Animation Platform)** for seamless, visually engaging animations throughout the site.
 
