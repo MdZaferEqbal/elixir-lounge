@@ -130,8 +130,10 @@ const Hero = () => {
       },
     });
 
-    tl.to(videoRef.current, {
-      currentTime: videoRef.current.duration,
+    const video = videoRef.current;
+
+    tl.to(video, {
+      currentTime: video.duration,
     });
   }, []);
 
