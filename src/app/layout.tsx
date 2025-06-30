@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   icons: { icon: "/images/logo.png" },
   openGraph: {
     type: "website",
-    url: "https://elixir-lounge.netlify.app/",
+    url: "https://elixir-lounge.vercel.app/",
     title: "Elixir Lounge",
     description:
       "Experience seamless, high-performance animations with our GSAP-powered website. Designed for smooth transitions, engaging interactions, and a modern, intuitive user journey that captivates at every scroll.",
     images: [
       {
-        url: "https://elixir-lounge.netlify.app/images/fav.png",
+        url: "https://elixir-lounge.vercel.app/images/fav.png",
         alt: "Elixir Lounge - Seamless GSAP Animations",
       },
     ],
