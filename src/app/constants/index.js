@@ -8,13 +8,17 @@ const navLinks = [
     title: "About Us",
   },
   {
-    id: "work",
+    id: "art",
     title: "The Art",
   },
   {
-    id: "contact",
-    title: "Contact",
+    id: "menu",
+    title: "Menu",
   },
+  // {
+  //   id: "contact",
+  //   title: "Contact",
+  // },
 ];
 
 const cocktailLists = [
@@ -22,25 +26,25 @@ const cocktailLists = [
     name: "Chapel Hill Shiraz",
     country: "AU",
     detail: "Battle",
-    price: "$10",
+    price: "₹1850",
   },
   {
     name: "Caten Malbee",
     country: "AU",
     detail: "Battle",
-    price: "$49",
+    price: "₹1860",
   },
   {
     name: "Rhino Pale Ale",
     country: "CA",
     detail: "750 ml",
-    price: "$20",
+    price: "₹1980",
   },
   {
     name: "Irish Guinness",
     country: "IE",
     detail: "600 ml",
-    price: "$29",
+    price: "₹1200",
   },
 ];
 
@@ -49,25 +53,25 @@ const mockTailLists = [
     name: "Tropical Bloom",
     country: "US",
     detail: "Battle",
-    price: "$10",
+    price: "₹1850",
   },
   {
     name: "Passionfruit Mint",
     country: "US",
     detail: "Battle",
-    price: "$49",
+    price: "₹1860",
   },
   {
     name: "Citrus Glow",
     country: "CA",
     detail: "750 ml",
-    price: "$20",
+    price: "₹1980",
   },
   {
     name: "Lavender Fizz",
     country: "IE",
     detail: "600 ml",
-    price: "$29",
+    price: "₹1200",
   },
 ];
 

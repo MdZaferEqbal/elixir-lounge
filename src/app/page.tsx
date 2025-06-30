@@ -1,9 +1,13 @@
-import { Hero } from "./components";
+import { About, Art, Cocktails, Hero, Menu } from "./components";
 
 export default function Home() {
   return (
-    <main>
+    <main className="w-full overflow-x-hidden">
       <Hero />
+      <Cocktails />
+      <About />
+      <Art />
+      <Menu />
     </main>
   );
 }
