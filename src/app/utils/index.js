@@ -37,15 +37,12 @@ import logo from "../../../public/images/logo.png";
 import maskImg from "../../../public/images/mask-img.png";
 import noise from "../../../public/images/noise.png";
 
-import profile1 from "../../../public/images/profile1.png";
-import profile2 from "../../../public/images/profile2.png";
-import profile3 from "../../../public/images/profile3.png";
-import profile4 from "../../../public/images/profile4.png";
-
 import sliderLeftLeaf from "../../../public/images/slider-left-leaf.png";
 import sliderRightLeaf from "../../../public/images/slider-right-leaf.png";
 
 import underImg from "../../../public/images/under-img.jpg";
+
+import loader from "../../../public/images/loader.svg";
 
 export {
   abt1,
@@ -76,11 +73,8 @@ export {
   logo,
   maskImg,
   noise,
-  profile1,
-  profile2,
-  profile3,
-  profile4,
   sliderLeftLeaf,
   sliderRightLeaf,
   underImg,
+  loader,
 };

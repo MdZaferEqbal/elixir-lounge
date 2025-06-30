@@ -40,7 +40,7 @@ const Navbar = () => {
           href="#hero"
           className="flex items-center gap-2 cursor-pointer text-nowrap md:text-base text-sm"
         >
-          <Image src={logo} alt="Elixir Lounge Logo" />
+          <Image src={logo} alt="Elixir Lounge Logo" placeholder="blur" />
           <p className="font-modern-negra text-3xl -mb-2">Elixir Lounge</p>
         </Link>
         <ul className="flex justify-center items-center lg:gap-12 gap-7">
