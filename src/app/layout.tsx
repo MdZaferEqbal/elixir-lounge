@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       "Experience seamless, high-performance animations with our GSAP-powered website. Designed for smooth transitions, engaging interactions, and a modern, intuitive user journey that captivates at every scroll.",
     images: [
       {
-        url: "https://elixir-lounge.vercel.app/images/fav.png",
+        url: "https://elixir-lounge.vercel.app/images/website-screenshot.png",
         alt: "Elixir Lounge - Seamless GSAP Animations",
       },
     ],
