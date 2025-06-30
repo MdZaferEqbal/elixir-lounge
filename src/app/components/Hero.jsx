@@ -132,8 +132,10 @@ const Hero = () => {
 
     const video = videoRef.current;
 
-    tl.to(video, {
-      currentTime: video.duration,
+    video.addEventListener("loadedmetadata", () => {
+      tl.to(video, {
+        currentTime: video.duration,
+      });
     });
   }, []);
 

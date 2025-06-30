@@ -6,6 +6,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 import {
+  drink1,
+  drink2,
+  drink3,
+  drink4,
   leftArrow,
   rightArrow,
   sliderLeftLeaf,
@@ -66,6 +70,10 @@ const Menu = () => {
   const prevCocktail = getCocktailAt(-1);
   const nextCocktail = getCocktailAt(1);
 
+  const drinks = [drink1, drink2, drink3, drink4];
+
+  const currentCocktailImg = drinks[currentIndex];
+
   return (
     <section
       id="menu"
@@ -121,12 +129,7 @@ const Menu = () => {
             <span className="text-3xl font-modern-negra leading-none hidden md:block">
               {prevCocktail.name}
             </span>
-            <Image
-              src={rightArrow}
-              alt="right-arrow"
-              aria-hidden="true"
-              placeholder="blur"
-            />
+            <Image src={rightArrow} alt="right-arrow" aria-hidden="true" />
           </button>
 
           <button
@@ -136,12 +139,7 @@ const Menu = () => {
             <span className="text-3xl font-modern-negra leading-none hidden md:block">
               {nextCocktail.name}
             </span>
-            <Image
-              src={leftArrow}
-              alt="left-arrow"
-              aria-hidden="true"
-              placeholder="blur"
-            />
+            <Image src={leftArrow} alt="left-arrow" aria-hidden="true" />
           </button>
         </div>
 
@@ -150,11 +148,13 @@ const Menu = () => {
           className="flex justify-center items-center mt-10"
         >
           {/* Current Cocktail */}
-          <img
-            src={currentCocktail.image}
+          <Image
+            src={currentCocktailImg}
             className="object-contain h-[60vh]"
             alt={currentCocktail.title}
             id="current-cocktail-img"
+            style={{ width: "auto" }}
+            placeholder="blur"
           />
         </div>
 
