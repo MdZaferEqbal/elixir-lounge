@@ -4,7 +4,7 @@
     </a>
 </div>
 
-# <div style="display:flex; align-items: center">
+<div style="display:flex; align-items: center: font-size: 2rem">
 
 <img src="public/images/fav.png" width="35" height="35" alt="Elixir Lounge"/> Elixir Lounge Website
 
