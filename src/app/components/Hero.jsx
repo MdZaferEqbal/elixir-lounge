@@ -132,11 +132,17 @@ const Hero = () => {
 
     const video = videoRef.current;
 
-    video.addEventListener("loadedmetadata", () => {
+    if (video && video.readyState >= 1) {
       tl.to(video, {
         currentTime: video.duration,
       });
-    });
+    } else {
+      video.onloadedmetadata = () => {
+        tl.to(video, {
+          currentTime: video.duration,
+        });
+      };
+    }
   }, []);
 
   return (

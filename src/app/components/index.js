@@ -6,4 +6,6 @@ import About from "./About";
 import Art from "./Art";
 import Menu from "./Menu";
 
-export { Navbar, Hero, Cocktails, About, Art, Menu };
+import Loader from "./Loader";
+
+export { Navbar, Hero, Cocktails, About, Art, Menu, Loader };
