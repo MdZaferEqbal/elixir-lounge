@@ -145,16 +145,17 @@ const Menu = () => {
 
         <div
           id="cocktail-img"
-          className="flex justify-center items-center mt-10"
+          className="flex justify-center items-center mt-10 transition-all hover:scale-110"
         >
           {/* Current Cocktail */}
           <Image
             src={currentCocktailImg}
-            className="object-contain h-[60vh]"
+            className="object-contain h-[60vh] cursor-pointer"
             alt={currentCocktail.title}
             id="current-cocktail-img"
             style={{ width: "auto" }}
             placeholder="blur"
+            onClick={() => goToSlide(currentIndex + 1)}
           />
         </div>
 

@@ -1,5 +1,4 @@
 <div align="center">
-  <br />
     <a href="https://elixir-lounge.vercel.app/" target="_blank">
       <img src="public/images/website-screenshot.png" alt="Project Banner">
     </a>
@@ -19,7 +18,7 @@ A modern and dynamic website. Built with **Next.js** for fast and scalable perfo
 
 - **[Tailwind CSS](https://tailwindcss.com/)** is a utility-first CSS framework that allows developers to design custom user interfaces by applying low-level utility classes directly in HTML, streamlining the design process.
 
-- **[Vite](https://vitejs.dev/)** is a lightning-fast build tool and development server that powers this project’s workflow. It enables instant hot module replacement, fast startup, and optimized production builds—ideal for an animation-heavy React site with smooth, real-time development feedback and minimal config.
+- **[NextJs](https://nextjs.org/)** Next.js powers this project with a fast, flexible development environment, offering features like instant hot reloading, quick startup, and optimized production builds. Its built-in image optimization ensures efficient loading and responsive performance—perfect for an animation-rich React site that demands smooth interactions and real-time development feedback with minimal configuration.
 
 ---
 
@@ -43,7 +42,7 @@ A modern and dynamic website. Built with **Next.js** for fast and scalable perfo
 
 👉 **Responsive Design**: Ensure fluid UI and adaptive GSAP animations across all screen sizes.
 
-And many more, including enhanced security and optimized video performance!
+And many more, including optimized video, image performance!
 
 ---
 
