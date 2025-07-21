@@ -13,7 +13,7 @@ gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-  const videoRef = useRef();
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   useGSAP(() => {
@@ -46,7 +46,7 @@ const Hero = () => {
         },
       });
 
-      let heroLeftSubtitleSplit = SplitText.create("#el-hero-left-subtitle", {
+      const heroLeftSubtitleSplit = SplitText.create("#el-hero-left-subtitle", {
         type: "lines",
         autoSplit: true,
         mask: "lines",
@@ -69,28 +69,31 @@ const Hero = () => {
         },
       });
 
-      let heroRightSubtitleSplit = SplitText.create("#el-hero-right-subtitle", {
-        type: "lines",
-        autoSplit: true,
-        mask: "lines",
-        onSplit: (self) => {
-          gsap.to("#el-hero-right-subtitle", {
-            opacity: 1,
-          });
+      const heroRightSubtitleSplit = SplitText.create(
+        "#el-hero-right-subtitle",
+        {
+          type: "lines",
+          autoSplit: true,
+          mask: "lines",
+          onSplit: (self) => {
+            gsap.to("#el-hero-right-subtitle", {
+              opacity: 1,
+            });
 
-          return tl.from(
-            self.lines,
-            {
-              y: 50,
-              opacity: 0,
-              ease: "power1.inOut",
-              autoAlpha: 0,
-              stagger: 0.05,
-            },
-            "<"
-          );
-        },
-      });
+            return tl.from(
+              self.lines,
+              {
+                y: 50,
+                opacity: 0,
+                ease: "power1.inOut",
+                autoAlpha: 0,
+                stagger: 0.05,
+              },
+              "<"
+            );
+          },
+        }
+      );
     });
 
     gsap
@@ -120,7 +123,7 @@ const Hero = () => {
     const startValue = isMobile ? "top 50%" : "center 50%";
     const endValue = isMobile ? "120% top" : "bottom top";
 
-    let tl = gsap.timeline({
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#el-hero-video",
         start: startValue,
@@ -132,16 +135,18 @@ const Hero = () => {
 
     const video = videoRef.current;
 
-    if (video && video.readyState >= 1) {
-      tl.to(video, {
-        currentTime: video.duration,
-      });
-    } else {
-      video.onloadedmetadata = () => {
+    if (video) {
+      if (video.readyState >= 1) {
         tl.to(video, {
           currentTime: video.duration,
         });
-      };
+      } else {
+        video.onloadedmetadata = () => {
+          tl.to(video, {
+            currentTime: video.duration,
+          });
+        };
+      }
     }
   }, []);
 
