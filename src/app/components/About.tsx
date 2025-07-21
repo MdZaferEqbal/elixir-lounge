@@ -7,10 +7,11 @@ import { abt1, abt2, abt3, abt4, abt5 } from "../utils";
 import Image from "next/image";
 
 gsap.registerPlugin(SplitText);
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   useGSAP(() => {
-    let subTitleTl = gsap.timeline({
+    const subTitleTl = gsap.timeline({
       scrollTrigger: {
         trigger: "#el-about-subtitle",
         start: "bottom bottom",
@@ -20,7 +21,7 @@ const About = () => {
       },
     });
 
-    let aboutSubtitleSplit = SplitText.create("#el-about-subtitle", {
+    const aboutSubtitleSplit = SplitText.create("#el-about-subtitle", {
       type: "lines",
       autoSplit: true,
       mask: "lines",
@@ -39,7 +40,7 @@ const About = () => {
       },
     });
 
-    let gridTl = gsap.timeline({
+    const gridTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".animated-img",
         start: "top bottom-=30%",
